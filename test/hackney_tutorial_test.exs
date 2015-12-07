@@ -19,4 +19,9 @@ defmodule HackneyTutorialTest do
     {:ok, status, headers, client} = HackneyTutorial.get
     assert client = HackneyTutorial.client({:ok, status, headers, client})
   end
+
+  test "get body" do
+    body = HackneyTutorial.get |> HackneyTutorial.client |> HackneyTutorial.body
+    assert body =~ ~r/html/
+  end
 end

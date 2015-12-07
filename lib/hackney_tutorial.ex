@@ -13,4 +13,9 @@ defmodule HackneyTutorial do
     {:ok, status, headers, client} = request_response
     client
   end
+
+  def body(client) do
+    {:ok, body} = :hackney.body(client)
+    body
+  end
 end
