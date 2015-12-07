@@ -6,4 +6,12 @@ defmodule HackneyTutorialTest do
     {:ok, status, headers, client} = HackneyTutorial.simple_request
     assert status == 200
   end
+
+  test "RESTful GET method" do
+    {:ok, status, headers, client} = HackneyTutorial.get
+    assert status == 200
+
+    {:ok, status, headers, client} = HackneyTutorial.get("https://github.com")
+    assert status == 200
+  end
 end
