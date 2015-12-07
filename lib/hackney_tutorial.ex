@@ -8,4 +8,9 @@ defmodule HackneyTutorial do
   def get(url \\ "https://friendpaste.com", headers \\ [], payload \\ "", options \\ []) do
     :hackney.get(url, headers, payload, options)
   end
+
+  def client(request_response) do
+    {:ok, status, headers, client} = request_response
+    client
+  end
 end

@@ -14,4 +14,9 @@ defmodule HackneyTutorialTest do
     {:ok, status, headers, client} = HackneyTutorial.get("https://github.com")
     assert status == 200
   end
+
+  test "client method" do
+    {:ok, status, headers, client} = HackneyTutorial.get
+    assert client = HackneyTutorial.client({:ok, status, headers, client})
+  end
 end
